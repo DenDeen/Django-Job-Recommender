@@ -1,0 +1,16 @@
+<table id="non-static-page" class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Skill</th>
+            <th scope="col">Weight</th>
+        </tr>
+    </thead>
+    <tbody >
+        {% for item in data %}
+        <tr>
+            <td> {{ item.skill }}</td>
+            <td> {{ item.weight }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
