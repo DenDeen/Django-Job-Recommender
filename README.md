@@ -1,0 +1,2 @@
+# django-dotdash
+ django frontend
