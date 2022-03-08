@@ -27,6 +27,8 @@ def sort_by_total_distance(skill_list):
             for idx in id_list:
                 total_distance += distance_mat[i,idx]
             distance_list.append(total_distance)
+        else:
+            distance_list.append(float('inf'))
     distances = np.array(distance_list)
     idx = np.argsort(distances)
     top_distances = distances[idx]
@@ -43,7 +45,7 @@ def getItems(data):
     else:
         dists, idx = sort_by_total_distance(data)
         skills = list(embed_df['name'][idx])
-        return [{'skill': skill, 'weight': round(weight, 2)} for skill, weight in zip(skills, dists)]
+        return [{'skill': skill, 'weight': round(3000/weight, 2)} for skill, weight in zip(skills, dists)]
 
 def getColumns():
     return {'skill': 'skill', 'weight': 'weight'}
