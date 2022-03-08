@@ -17,7 +17,7 @@ $(document).ready(function () {
             {"data": "skill"},
             {"data": "weight"},
         ],
-        order: [[ 1, "desc" ]]
+        order: [[ 1, "asc" ]]
     });
 
     table2.on('click', 'tbody tr' ,function() {
@@ -58,7 +58,7 @@ $(document).ready(function () {
                 {"data": "skill"},
                 {"data": "weight"},
             ],
-            order: [[ 1, "desc" ]]
+            order: [[ 1, "asc" ]]
         });
     }
 });
