@@ -718,7 +718,8 @@ progress {
 .container-sm,
 .container-md,
 .container-lg,
-.container-xl {
+.container-xl,
+.container-xxl{
   width: 100%;
   padding-right: var(--bs-gutter-x, 2rem);
   padding-left: var(--bs-gutter-x, 2rem);
@@ -740,6 +741,10 @@ progress {
 @media (min-width: 1200px) {
   .container, .container-sm, .container-md, .container-lg, .container-xl {
     max-width: 1140px; } }
+
+@media (min-width: 1600px) {
+  .container, .container-sm, .container-md, .container-lg, .container-xl {
+    max-width: 1500px; } }    
 
 .row {
   --bs-gutter-x: 1.5rem;

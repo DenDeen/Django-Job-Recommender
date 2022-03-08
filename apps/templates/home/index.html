@@ -13,9 +13,6 @@
 <meta name="title" content="Dotdash - Graph database usecase">
 <meta name="author" content="Mikkel Skovdal">
 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css">
-
 <!-- Favicon -->
 <link rel="apple-touch-icon" sizes="120x120" href="/static/assets/img/favicon/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/static/assets/img/favicon/favicon-32x32.png">
@@ -28,11 +25,11 @@
 <!-- Fontawesome -->
 <link type="text/css" href="/static/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 
-<!-- Datatable -->
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.css"/>
-
 <!-- Pixel CSS -->
 <link type="text/css" href="/static/assets/css/pixel.css" rel="stylesheet">
+
+<!-- Datatable -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css"/>
 
 </head>
 <body>
@@ -62,8 +59,7 @@
         </section>
         <!-- End of Hero -->
         
-        <div class="section section-md">
-            <div class="container">
+        <div class="section section-lg" style="margin: 0% 5%;">
                 <div class="row justify-content-center">
                     <div class="row">
                         <div class="col-lg-6 col-md-12">
@@ -71,7 +67,7 @@
                                 <div class="card-header bg-white p-3 text-center">
                                     <h3 class="text-primary mb-4">Chosen Skills</span>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body table-responsive-sm">
                                     <table id="static-page" class="table table-hover">
                                         <thead>
                                             <tr>
@@ -105,7 +101,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </main>
 
     {% include 'includes/footer.html' %}

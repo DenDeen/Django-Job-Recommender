@@ -5,6 +5,7 @@ from django.template import loader
 from django.urls import reverse
 from django.shortcuts import render
 import apps.home.models as models
+import json
 
 def index(request):
     
@@ -18,11 +19,12 @@ def index(request):
 
 @csrf_exempt
 def data(request):
-    data = request.POST.get('items')
+    if request.method == 'POST':
+        body_unicode = request.POST.get('items', None)
+        payload = json.loads(body_unicode)
+        items = models.getItems(payload)
 
-    json = models.getItems(data)
-
-    response = {'data': json}
+    response = {'data': items}
     
     return JsonResponse(response)
 

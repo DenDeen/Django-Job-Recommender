@@ -9,26 +9,18 @@ with open('apps/static/assets/ai/distance_matrix.npy','rb') as f:
 embed_df = pd.read_csv('apps/static/assets/ai/skill_embed.csv')
 init_sort = pd.read_csv('apps/static/assets/ai/initial_skill_sort.csv')
 
-def loadFiles():
-    # Load some stuff
-    with open('distance_matrix.npy','rb') as f:
-        distance_mat = np.load(f)
-
-    embed_df = pd.read_csv('skill_embed.csv')
-    init_sort = pd.read_csv('initial_skill_sort.csv')
-    return distance_mat, embed_df, init_sort
-
-def get_id(skill, embed_df):
+def get_id(skill):
     for i,skill_name in enumerate(embed_df['name']):
         if skill_name == skill:
             return i
     raise ValueError('skill not found')
 
-def sort_by_total_distance(skill_list, distance_mat):
+
+def sort_by_total_distance(skill_list):
     distance_list = []
     id_list = []
     for skill in skill_list:
-        id_list.append(get_id(skill))
+        id_list.append(get_id(skill['skill']))
     for i in range(len(distance_mat)):
         if i not in id_list:
             total_distance = 0
@@ -51,10 +43,7 @@ def getItems(data):
     else:
         dists, idx = sort_by_total_distance(data)
         skills = list(embed_df['name'][idx])
-        transposed = []
-        for a,b in zip(skills,dists):
-            transposed.append({'skill':a,'weight':b})
-        return json.dumps(transposed)
+        return [{'skill': skill, 'weight': round(weight, 2)} for skill, weight in zip(skills, dists)]
 
 def getColumns():
     return {'skill': 'skill', 'weight': 'weight'}
