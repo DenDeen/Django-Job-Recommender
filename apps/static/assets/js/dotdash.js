@@ -44,7 +44,7 @@ $(document).ready(function () {
     async function refreshTable() {
         console.log(items);
         table2.destroy();
-        table2 = $('#non-static-page').DataTable({
+        table2 = await $('#non-static-page').DataTable({
             ajax: {
                 url: "/data/",
                 type: "POST",
